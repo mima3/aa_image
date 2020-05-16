@@ -17,10 +17,10 @@
 /**
  * English language strings.
  *
- * @package   filter_syntaxhighlighter
- * @author    Mark Sharp <m.sharp@chi.ac.uk>
- * @copyright 2017 University of Chichester {@link www.chi.ac.uk}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   todo
+ * @author    todo
+ * @copyright todo
+ * @license   todor
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -28,15 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'AA Image';
 $string['filtername'] = 'AA Image';
 $string['privacy:metadata'] = 'The filter_aa_image plugin does not store any personal data.';
-$string['serviceurl'] = 'Service url'
-$string['serviceurl_desc'] = 'url of aa image service.'
-
-/*
-$string['style'] = 'Highlighting style';
-$string['style_desc'] = 'The name of the stylesheet to use for highlighting.<p>Example style (Save changes to update)</p>' .
-                        '<pre><code>&lt;?php<br/>function multiply($a, $b) {<br />    return $a * $b;<br />}<br />' .
-                        'echo multiply(10, 15);</code></pre>';
-$string['cdn'] = 'Use CDN';
-$string['cdn_desc'] = 'Use CDN library for stylesheets. This may be faster than loading the files locally, ' .
-                        'but you may prefer loading the files locally for GDPR reasons.';
-*/
+$string['serviceurl'] = 'Service url';
+$string['serviceurl_desc'] = 'url of aa image service.';

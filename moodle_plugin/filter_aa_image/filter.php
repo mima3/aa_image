@@ -51,9 +51,13 @@ class filter_aa_image extends moodle_text_filter {
         $result = preg_match_all($re, $text, $matches);
         if ($result > 0) {
             foreach ($matches[1] as $idx => $code) {
-                $code = str_replace(['<p>', '</p>', '<br>', '&nbsp;'], ['', "\n", "\n", " "], $code);
+                $code = str_replace(
+                    ['&gt;','&lt;','<pre>', '</pre>', '<p>', '</p>', '<br>', '&nbsp;'],
+                    ['<', '>','', '', '', "", "\n", " "],
+                    $code);
                 $key = base64_encode(gzdeflate($code, 9));
-                $text = '<p><img src="' . get_config('filter_aa_image', 'service_url') . '?d=' . urlencode($key). '"/></p>';
+                $newcode = '<p><img src="' . get_config('filter_aa_image', 'service_url') . '?d=' . urlencode($key). '"/></p>';
+                                $text = str_replace($matches[0][$idx], $newcode, $text);
             }
         }
 

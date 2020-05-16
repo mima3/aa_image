@@ -15,12 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Settings for syntax highlighter.
+ * Settings for AA image filter.
  *
- * @package   filter_syntaxhighlighter
- * @author    Mark Sharp <m.sharp@chi.ac.uk>
- * @copyright 2017 University of Chichester {@link www.chi.ac.uk}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   todo
+ * @author    todo
+ * @copyright todo
+ * @license   todo
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -30,6 +30,6 @@ if ($ADMIN->fulltree) {
         'filter_aa_image/service_url',
         new lang_string('serviceurl', 'filter_aa_image'), 
         new lang_string('serviceurl_desc', 'filter_aa_image'), 
-        'http://needtec.sakura.ne.jp/aa_image');
+        'http://needtec.sakura.ne.jp/aa_image/image');
     $settings->add($setting);
 }

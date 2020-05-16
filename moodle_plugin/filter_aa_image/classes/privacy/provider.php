@@ -15,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for filter_syntaxhighlighter.
+ * Privacy Subsystem implementation for filter_aa_image.
  *
  * @package    filter_aa_image
- * @copyright  2018 Mark Sharp <m.sharp@chi.ac.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  todo
+ * @license    todo
  */
 
 namespace filter_aa_image\privacy;
