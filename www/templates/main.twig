@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>テストページ</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--bluma-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <div id = "app">
+        <section class="section">
+            <h1 class="title">AAのイメージ作成</h1>
+            <div class="control">
+                <textarea class="textarea" v-model="text" style="font-family:'ＭＳ Ｐゴシック';"></textarea>
+            </div>
+            <div class="control">
+                <button class="button"  v-on:click="encode">表示</button>
+            </div>
+            <div class="control">
+                <input v-model="code" class="input" type="text" readonly>
+            </div>
+            <img v-bind:src="imageUrl">
+            <div>
+            <a v-bind:href="imageUrl">${imageUrl}</a>
+            </div>
+        </section>
+    </div>
+<script type="text/javascript">
+const app = new Vue({
+  el : '#app',
+  delimiters: ['${', '}'],
+  data : {
+      text: '(´・ω・｀)',
+      code: '0zi05XHz7vOdQOL93gZNAA%3D%3D',
+  },
+  computed: {
+      imageUrl : function () {
+         const local = location.href.split("/");
+         local.pop();
+         return local.join('/') + '/image?d=' + this.code;
+      }
+  },
+  methods: {
+    encode: function() {
+      const self = this;
+      axios.post(
+          'encode',
+          {
+            text: self.text
+          }
+      ).then(function(res) {
+        if (res.data.error) {
+            alert(res.data.error);
+            return;
+        }
+        self.code = res.data.code;
+      }).catch(function(err) {
+        alert(err);
+      });
+    }
+  }
+});
+</script>
+</body>
+</html>

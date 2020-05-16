@@ -5,9 +5,9 @@ RewriteEngine On
 # absolute physical path to the directory that contains this htaccess file.
 #
 # RewriteBase /
-RewriteBase /aa_image/
+#RewriteBase /aa_image/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^ index.php [QSA,L]
+RewriteRule ^(.*)$ index.php/$1 [L]

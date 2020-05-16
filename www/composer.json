@@ -4,6 +4,7 @@
     "require": {
         "slim/slim": "4.*",
         "slim/psr7": "*",
+        "slim/twig-view": "*",
         "php-di/php-di" : "*",
         "j4mie/idiorm": "*"
     },
