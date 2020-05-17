@@ -19,10 +19,11 @@
                 <textarea class="textarea" v-model="text" style="font-family:'ＭＳ Ｐゴシック';"></textarea>
             </div>
             <div class="control">
-                <button class="button"  v-on:click="encode">表示</button>
+                <input v-model="code" class="input" type="text">
             </div>
             <div class="control">
-                <input v-model="code" class="input" type="text" readonly>
+                <button class="button"  v-on:click="encode">AAからコードへ</button>
+                <button class="button"  v-on:click="decode">コードからAAへ</button>
             </div>
             <img v-bind:src="imageUrl">
             <div>
@@ -59,6 +60,23 @@ const app = new Vue({
             return;
         }
         self.code = res.data.code;
+      }).catch(function(err) {
+        alert(err);
+      });
+    },
+    decode: function() {
+      const self = this;
+      axios.post(
+          'decode',
+          {
+            code: self.code
+          }
+      ).then(function(res) {
+        if (res.data.error) {
+            alert(res.data.error);
+            return;
+        }
+        self.text = res.data.text;
       }).catch(function(err) {
         alert(err);
       });

@@ -92,7 +92,7 @@ $app->get('/image', function (Request $request, Response $response, $args) {
 
     $imageModel = $this->get('imageModel');
     $image = null;
-    if (strlen($key) > 1024 * 10) {
+    if (strlen($key) > 1024 * 2) {
         $response->getBody()->write("文字数が多すぎるため作成できません。");
         return $response->withStatus(500);
     }
@@ -129,6 +129,16 @@ $app->post('/encode', function (Request $request, Response $response, $args) {
         }
         $result['code'] = urlencode($code);
     }
+    $response->getBody()->write(json_encode($result));
+    return $response->withHeader('Content-Type', 'application/json')
+                    ->withStatus(200);    
+});
+$app->post('/decode', function (Request $request, Response $response, $args) {
+    $result = [];
+    $body = $request->getParsedBody();
+    $decode_data = base64_decode(urldecode($body['code']));
+    $text = gzinflate($decode_data);
+    $result['text'] = $text;
     $response->getBody()->write(json_encode($result));
     return $response->withHeader('Content-Type', 'application/json')
                     ->withStatus(200);    
